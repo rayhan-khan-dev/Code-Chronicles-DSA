@@ -1,66 +1,66 @@
-# 📌 10. Trees & Binary Search Trees
+# 📌 11. Heaps & Priority Queues
 
-A Tree is a non-linear hierarchical data structure consisting of nodes connected by directed edges, with a single designated root node and no cycles. Trees form the foundational architecture for relational indexing, abstract syntax trees, and file systems.
+A Heap is a specialized tree-based data structure that satisfies the complete binary tree structural property alongside the Heap Invariant. It serves as the primary implementation engine for Priority Queues, graph search algorithms (Dijkstra, Prim), and streaming Top-K order calculations.
 
 ---
 
 ## 🧠 Core Conceptual Breakdown
 
-### 1. Structural Typologies
+### 1. Array Representation of Complete Binary Trees
 
-- **Binary Tree (BT):** Each node has at most two children (`left`, `right`).
-- **Binary Search Tree (BST):** Enforces a strict ordering property:
-  $$\forall x \in \text{Left Subtree: } \text{Value}(x) < \text{Value}(\text{Root})$$
-  $$\forall y \in \text{Right Subtree: } \text{Value}(y) > \text{Value}(\text{Root})$$
-  _Inorder traversal of a BST produces elements in strictly sorted order._
-- **Self-Balancing BSTs (AVL, Red-Black Trees):** Dynamically rebalance via pointer rotations to maintain $O(\log N)$ height bounds during insertions and deletions.
+Because heaps are structurally complete (every level completely filled except possibly the last, which is filled from left to right), they are stored in continuous flat arrays without pointer overhead:
 
-### 2. Traversal Algorithms
+- For a node located at 0-indexed position $i$:
+  $$\text{Parent Index} = \left\lfloor\frac{i - 1}{2}\right\rfloor$$
+  $$\text{Left Child Index} = 2i + 1$$
+  $$\text{Right Child Index} = 2i + 2$$
 
-- **Depth-First Search (DFS):**
-  - **Pre-Order ($N \to L \to R$):** Used for copying/serializing trees.
-  - **In-Order ($L \to N \to R$):** Used for sorted traversal in BSTs.
-  - **Post-Order ($L \to R \to N$):** Used for bottom-up computation (e.g., tree height, deleting nodes).
-- **Breadth-First Search (BFS / Level Order):** Traverses nodes layer by layer using a FIFO Queue.
-- **Morris Inorder Traversal:** Traverses binary trees without recursion or explicit stack memory using threaded binary trees ($O(N)$ time, $O(1)$ auxiliary space).
+### 2. Heap Invariant Properties
 
-### 3. Tree Depth & Diameter Calculations
+- **Max-Heap:** The value of every parent node is $\ge$ the values of its child nodes ($\text{Root} = \text{Maximum value}$).
+- **Min-Heap:** The value of every parent node is $\le$ the values of its child nodes ($\text{Root} = \text{Minimum value}$).
 
-- **Height of Node:** Length of longest downward path from node to a leaf:
-  $$\text{Height}(u) = 1 + \max(\text{Height}(u.\text{left}), \text{Height}(u.\text{right}))$$
-- **Diameter:** Longest path between any two arbitrary leaf nodes in the tree (does not necessarily pass through root).
+### 3. Core Mechanics: Heapify, Insert, and Extract
+
+- **`sift_up` (Bubble Up):** Restores heap property after insertion at the array's end ($O(\log N)$).
+- **`sift_down` (Bubble Down):** Restores heap property after root extraction ($O(\log N)$).
+- **`build_heap` (Heapification from Unsorted Array):** Running `sift_down` from index $\lfloor N/2 \rfloor - 1$ down to $0$ constructs a valid heap in $O(N)$ linear time (not $O(N \log N)$), mathematically proven via Taylor Series summation:
+  $$\sum_{h=0}^{\log N} \frac{h}{2^h} \approx 2 \implies O(N)$$
+
+### 4. Standard Top-K Extraction Pattern
+
+- To maintain the **Top-K Largest Elements** from a stream of size $N$: Use a **Min-Heap of size $K$**. If the incoming element is greater than the heap root, pop and push the incoming value. Space: $O(K)$, Time: $O(N \log K)$.
+- To maintain the **Top-K Smallest Elements**: Use a **Max-Heap of size $K$**.
 
 ---
 
-## ⏱️ Operation Complexity Matrix
+## ⏱️ Complexity Profile
 
-| Operation               | General Binary Tree | Unbalanced BST (Worst) | Balanced BST (AVL/Red-Black) |
-| :---------------------- | :-----------------: | :--------------------: | :--------------------------: |
-| **Search**              |       $O(N)$        |         $O(N)$         |         $O(\log N)$          |
-| **Insertion**           |       $O(N)$        |         $O(N)$         |         $O(\log N)$          |
-| **Deletion**            |       $O(N)$        |         $O(N)$         |         $O(\log N)$          |
-| **Traversal (DFS/BFS)** |       $O(N)$        |         $O(N)$         |            $O(N)$            |
+| Operation                   | Heap Array Implementation | Unsorted Array | Balanced BST  |
+| :-------------------------- | :-----------------------: | :------------: | :-----------: |
+| **Get Min / Max (Peek)**    |          $O(1)$           |     $O(N)$     |  $O(\log N)$  |
+| **Insert (`push`)**         |        $O(\log N)$        |     $O(1)$     |  $O(\log N)$  |
+| **Extract Min/Max (`pop`)** |        $O(\log N)$        |     $O(N)$     |  $O(\log N)$  |
+| **Build Heap from Array**   |          $O(N)$           |     $O(1)$     | $O(N \log N)$ |
 
 ---
 
 ## 🎥 Curated Video Lectures
 
-| Topic                                          | Primary Instructor     | Video / Playlist Link                                                                        |
-| :--------------------------------------------- | :--------------------- | :------------------------------------------------------------------------------------------- |
-| **Binary Tree & BST Complete Roadmap (A2Z)**   | Striver (takeUforward) | [Watch on YouTube](https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk) |
-| **Trees Pattern Recognition & DFS/BFS Series** | NeetCode               | [Watch on YouTube](https://www.youtube.com/playlist?list=PLot-Xpze53ldg4pN6PfzoJY7KsKcxY1jg) |
-| **Tree Rotations & AVL Tree Balance Proofs**   | Abdul Bari             | [Watch on YouTube](https://www.youtube.com/watch?v=jDM6_TnYIqE)                              |
+| Topic                                         | Primary Instructor     | Video / Playlist Link                                                                        |
+| :-------------------------------------------- | :--------------------- | :------------------------------------------------------------------------------------------- |
+| **Heap - Heapify, Insert, Delete, Heap Sort** | Abdul Bari             | [Watch on YouTube](https://www.youtube.com/watch?v=HqPJF2L5h9U)                              |
+| **Heaps & Priority Queues Playlist**          | Striver (takeUforward) | [Watch on YouTube](https://www.youtube.com/playlist?list=PLgUwDviBIf0p4ozDR_kJJkONnb1wdx2Ma) |
+| **Top-K Elements & Two Heaps Pattern**        | NeetCode               | [Watch on YouTube](https://www.youtube.com/playlist?list=PLot-Xpze53ldVwtstag2TL4HQhAnC8ATf) |
 
 ---
 
 ## 🎯 Curated Problem Checklist
 
-|  #  | Problem                                                                                                                       | Difficulty | Category                                        |                                                    Solution Walkthrough                                                    |
-| :-: | :---------------------------------------------------------------------------------------------------------------------------- | :--------: | :---------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------: |
-|  1  | [Maximum Depth of Binary Tree (LeetCode 104)](https://leetcode.com/problems/maximum-depth-of-binary-tree/)                    |  🟢 Easy   | Bottom-Up DFS Recursion                         |     [Video Solution](https://www.youtube.com/results?search_query=LeetCode+104+Maximum+Depth+of+Binary+Tree+NeetCode)      |
-|  2  | [Invert/Flip Binary Tree (LeetCode 226)](https://leetcode.com/problems/invert-binary-tree/)                                   |  🟢 Easy   | Pointer Swapping Traversal                      |          [Video Solution](https://www.youtube.com/results?search_query=LeetCode+226+Invert+Binary+Tree+NeetCode)           |
-|  3  | [Binary Tree Level Order Traversal (LeetCode 102)](https://leetcode.com/problems/binary-tree-level-order-traversal/)          | 🟡 Medium  | Queue-based BFS Layering                        |   [Video Solution](https://www.youtube.com/results?search_query=LeetCode+102+Binary+Tree+Level+Order+Traversal+NeetCode)   |
-|  4  | [Lowest Common Ancestor in BST (LeetCode 235)](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) | 🟡 Medium  | BST Value Split Branching                       |    [Video Solution](https://www.youtube.com/results?search_query=LeetCode+235+Lowest+Common+Ancestor+of+a+BST+NeetCode)    |
-|  5  | [Validate Binary Search Tree (LeetCode 98)](https://leetcode.com/problems/validate-binary-search-tree/)                       | 🟡 Medium  | Range Boundary Propagation $(-\infty, +\infty)$ |      [Video Solution](https://www.youtube.com/results?search_query=LeetCode+98+Validate+Binary+Search+Tree+NeetCode)       |
-|  6  | [Binary Tree Maximum Path Sum (LeetCode 124)](https://leetcode.com/problems/binary-tree-maximum-path-sum/)                    |  🔴 Hard   | Post-Order Bottom-Up Max Gain                   |     [Video Solution](https://www.youtube.com/results?search_query=LeetCode+124+Binary+Tree+Maximum+Path+Sum+NeetCode)      |
-|  7  | [Serialize and Deserialize Binary Tree (LeetCode 297)](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)  |  🔴 Hard   | Pre-Order / BFS Encoding & Parsing              | [Video Solution](https://www.youtube.com/results?search_query=LeetCode+297+Serialize+and+Deserialize+Binary+Tree+NeetCode) |
+|  #  | Problem                                                                                                          | Difficulty | Applied Pattern                           |                                                 Solution Walkthrough                                                 |
+| :-: | :--------------------------------------------------------------------------------------------------------------- | :--------: | :---------------------------------------- | :------------------------------------------------------------------------------------------------------------------: |
+|  1  | [Kth Largest Element in an Array (LeetCode 215)](https://leetcode.com/problems/kth-largest-element-in-an-array/) | 🟡 Medium  | Min-Heap of size K / QuickSelect          | [Video Solution](https://www.youtube.com/results?search_query=LeetCode+215+Kth+Largest+Element+in+an+Array+NeetCode) |
+|  2  | [Top K Frequent Elements (LeetCode 347)](https://leetcode.com/problems/top-k-frequent-elements/)                 | 🟡 Medium  | Frequency Map + Min-Heap / Bucket Sort    |     [Video Solution](https://www.youtube.com/results?search_query=LeetCode+347+Top+K+Frequent+Elements+NeetCode)     |
+|  3  | [Task Scheduler (LeetCode 621)](https://leetcode.com/problems/task-scheduler/)                                   | 🟡 Medium  | Max-Heap Frequency Tracking + Queue       |         [Video Solution](https://www.youtube.com/results?search_query=LeetCode+621+Task+Scheduler+NeetCode)          |
+|  4  | [Design Twitter (LeetCode 355)](https://leetcode.com/problems/design-twitter/)                                   | 🟡 Medium  | Max-Heap $K$-Way Merge of Feeds           |         [Video Solution](https://www.youtube.com/results?search_query=LeetCode+355+Design+Twitter+NeetCode)          |
+|  5  | [Find Median from Data Stream (LeetCode 295)](https://leetcode.com/problems/find-median-from-data-stream/)       |  🔴 Hard   | Two Heaps (Max-Heap Left, Min-Heap Right) |  [Video Solution](https://www.youtube.com/results?search_query=LeetCode+295+Find+Median+from+Data+Stream+NeetCode)   |
