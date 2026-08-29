@@ -338,7 +338,7 @@ DSA MASTERY
 
 [░░░░░░░░░░░░░░░░░░░░] 0%
 
-Foundation       ░░░░░░░░░░  0%
+Foundation       ░░░░░░░░░░  6%
 Data Structures  ░░░░░░░░░░  0%
 Algorithms       ░░░░░░░░░░  0%
 Patterns         ░░░░░░░░░░  0%
@@ -356,9 +356,9 @@ Interviews       ░░░░░░░░░░  0%
 | Codeforces      |   100+ |      0 |
 | CSES            |   100+ |      0 |
 | HackerRank      |    50+ |      0 |
-| Custom Problems |   100+ |      0 |
+| Custom Problems |   100+ |      1 |
 
-**Total Solved:** `0`
+**Total Solved:** `1`
 <!-- END_SECTION:tracker -->
 ---
 
@@ -381,7 +381,7 @@ Problems will be organized by **topic, difficulty, and pattern** rather than sim
 ### Languages
 <!-- START_SECTION:languages -->
 ```text
-C++      ░░░░░░░░░░░░░░░░░░░░  0%
+C++      ████████████████████  100%
 Python   ░░░░░░░░░░░░░░░░░░░░  0%
 ```
 <!-- END_SECTION:languages -->
@@ -494,7 +494,7 @@ Build problem-solving ability.
 │       CODE CHRONICLES — DSA          │
 │                                      │
 │       Status: 🟡 In Progress         │
-│       Problems: 0                    │
+│       Problems: 1                    │
 │       Topics Mastered: 0             │
 │                                      │
 │       One problem at a time.         │
