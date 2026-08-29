@@ -505,7 +505,7 @@ Build problem-solving ability.
 ```
 <!-- END_SECTION:status -->
 
-```
+
 <p align="center">
   <strong>⚡ Learn. Implement. Solve. Optimize. Repeat.</strong>
 </p>
@@ -513,4 +513,4 @@ Build problem-solving ability.
 <p align="center">
   Built as a long-term DSA mastery journey.
 </p>
-```
+
