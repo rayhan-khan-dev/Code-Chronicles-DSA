@@ -345,8 +345,6 @@ Patterns         ░░░░░░░░░░  0%
 Problem Solving  ░░░░░░░░░░  0%
 Interviews       ░░░░░░░░░░  0%
 ```
-
-> Progress will be updated continuously as new topics and problems are completed.
 <!-- END_SECTION:progress -->
 ---
 
@@ -361,10 +359,6 @@ Interviews       ░░░░░░░░░░  0%
 | Custom Problems |   100+ |      0 |
 
 **Total Solved:** `0`
-
-**Current Streak:** `0 days`
-
-**Longest Streak:** `0 days`
 <!-- END_SECTION:tracker -->
 ---
 
@@ -387,8 +381,9 @@ Problems will be organized by **topic, difficulty, and pattern** rather than sim
 ### Languages
 <!-- START_SECTION:languages -->
 ```text
-C++      ████████████████████
-Python   ██████████░░░░░░░░░░
+C++      ░░░░░░░░░░░░░░░░░░░░  0%
+Python   ░░░░░░░░░░░░░░░░░░░░  0%
+```
 <!-- END_SECTION:languages -->
 ```
 
@@ -507,6 +502,7 @@ Build problem-solving ability.
 │       One problem at a time.         │
 │                                      │
 └──────────────────────────────────────┘
+```
 <!-- END_SECTION:status -->
 ```
 
