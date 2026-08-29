@@ -2,7 +2,7 @@ import os
 import re
 import requests
 
-# LeetCode ও Codeforces
+# Platform Usernames
 LEETCODE_USERNAME = "rayhan-khan-dev"
 CODEFORCES_USERNAME = "rayhan-khan-dev"
 
@@ -119,3 +119,55 @@ Algorithms       {generate_bar(p_algo)}  {p_algo}%
 Patterns         {generate_bar(p_patterns)}  {p_patterns}%
 Problem Solving  {generate_bar(p_prob)}  {p_prob}%
 Interviews       {generate_bar(p_interview)}  {p_interview}%
+```
+<!-- END_SECTION:progress -->"""
+
+    # 2. Tracker Block
+    tracker_block = f"""<!-- START_SECTION:tracker -->
+| Platform        | Target | Solved |
+| --------------- | -----: | -----: |
+| LeetCode        |   300+ |    {lc_solved:3d} |
+| Codeforces      |   100+ |    {cf_solved:3d} |
+| CSES            |   100+ |    {cses_solved:3d} |
+| HackerRank      |    50+ |    {hr_solved:3d} |
+| Custom Problems |   100+ |    {custom_solved:3d} |
+
+**Total Solved:** `{total_solved}`
+<!-- END_SECTION:tracker -->"""
+
+    # 3. Languages Block
+    lang_block = f"""<!-- START_SECTION:languages -->
+```text
+C++      {generate_master_bar(cpp_pct)}  {cpp_pct}%
+Python   {generate_master_bar(py_pct)}  {py_pct}%
+```
+<!-- END_SECTION:languages -->"""
+
+    # 4. Status Block
+    status_block = f"""<!-- START_SECTION:status -->
+```text
+┌──────────────────────────────────────┐
+│                                      │
+│       CODE CHRONICLES — DSA          │
+│                                      │
+│       Status: 🟡 In Progress         │
+│       Problems: {total_solved:<21}│
+│       Topics Mastered: 0             │
+│                                      │
+│       One problem at a time.         │
+│                                      │
+└──────────────────────────────────────┘
+```
+<!-- END_SECTION:status -->"""
+
+    # Replace in README
+    content = re.sub(r"<!-- START_SECTION:progress -->.*?<!-- END_SECTION:progress -->", progress_block, content, flags=re.DOTALL)
+    content = re.sub(r"<!-- START_SECTION:tracker -->.*?<!-- END_SECTION:tracker -->", tracker_block, content, flags=re.DOTALL)
+    content = re.sub(r"<!-- START_SECTION:languages -->.*?<!-- END_SECTION:languages -->", lang_block, content, flags=re.DOTALL)
+    content = re.sub(r"<!-- START_SECTION:status -->.*?<!-- END_SECTION:status -->", status_block, content, flags=re.DOTALL)
+
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(content)
+
+if __name__ == "__main__":
+    update_readme()
