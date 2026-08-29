@@ -25,7 +25,7 @@ Arrays and Strings represent the primary contiguous data structures in computer 
 - **Prefix Sum Arrays:** Pre-computing cumulative sums allows any range sum query between index $L$ and $R$ to execute in $O(1)$ time:
   $$\text{Sum}(L, R) = \text{Prefix}[R] - \text{Prefix}[L - 1]$$
 - **Kadane's Algorithm:** Computes the maximum contiguous subarray sum in $O(N)$ time by discarding negative running sums:
-  $$\text{current\_max} = \max(A[i], \text{current\_max} + A[i])$$
+  $$\text{currentMax} = \max(A[i], \text{currentMax} + A[i])$$
 - **Dutch National Flag Algorithm:** Partitions a 3-way distribution (e.g., sorting 0s, 1s, and 2s) in a single pass using three boundary pointers (`low`, `mid`, `high`).
 ---
 
