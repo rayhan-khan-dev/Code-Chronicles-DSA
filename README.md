@@ -385,7 +385,6 @@ C++      ░░░░░░░░░░░░░░░░░░░░  0%
 Python   ░░░░░░░░░░░░░░░░░░░░  0%
 ```
 <!-- END_SECTION:languages -->
-```
 
 ### Tools
 
@@ -451,7 +450,6 @@ Mock Interviews
 ```
 
 ---
-
 # 📚 Resources
 
 Quick-reference materials will be maintained in:
