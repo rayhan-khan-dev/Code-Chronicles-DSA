@@ -332,7 +332,7 @@ Code-Chronicles-DSA/
 # 📊 Progress
 
 ### Overall
-
+<!-- START_SECTION:progress -->
 ```text
 DSA MASTERY
 
@@ -347,11 +347,11 @@ Interviews       ░░░░░░░░░░  0%
 ```
 
 > Progress will be updated continuously as new topics and problems are completed.
-
+<!-- END_SECTION:progress -->
 ---
 
 # 🏆 Problem-Solving Tracker
-
+<!-- START_SECTION:tracker -->
 | Platform        | Target | Solved |
 | --------------- | -----: | -----: |
 | LeetCode        |   300+ |      0 |
@@ -365,7 +365,7 @@ Interviews       ░░░░░░░░░░  0%
 **Current Streak:** `0 days`
 
 **Longest Streak:** `0 days`
-
+<!-- END_SECTION:tracker -->
 ---
 
 # 🧭 Curated Practice
@@ -385,10 +385,11 @@ Problems will be organized by **topic, difficulty, and pattern** rather than sim
 # 🛠️ Tech Stack
 
 ### Languages
-
+<!-- START_SECTION:languages -->
 ```text
 C++      ████████████████████
 Python   ██████████░░░░░░░░░░
+<!-- END_SECTION:languages -->
 ```
 
 ### Tools
@@ -493,7 +494,7 @@ Build problem-solving ability.
 ---
 
 ## 🌱 Journey Status
-
+<!-- START_SECTION:status -->
 ```text
 ┌──────────────────────────────────────┐
 │                                      │
@@ -506,6 +507,7 @@ Build problem-solving ability.
 │       One problem at a time.         │
 │                                      │
 └──────────────────────────────────────┘
+<!-- END_SECTION:status -->
 ```
 
 ---
