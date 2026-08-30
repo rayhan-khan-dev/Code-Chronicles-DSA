@@ -8,7 +8,7 @@ A Linked List is a linear dynamic data structure where elements are not stored i
 
 ### 1. Structural Variants
 
-- **Singly Linked List:** Each node maintains a single pointer (`next`) pointing to the succeeding node. Traversal is strictly unidirectional ($O(N)$).
+- **Singly Linked List:** Each node maintains a single pointer (`next`) pointing to the succeeding node. Traversal is strictly unidirectional $O(N)$.
 - **Doubly Linked List:** Each node stores dual pointers (`next`, `prev`). Facilitates bidirectional traversal and $O(1)$ node deletion given a direct pointer to the target node.
 - **Circular Linked List:** The terminal node links back to the head node instead of pointing to `NULL`.
 
