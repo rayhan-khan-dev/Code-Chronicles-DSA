@@ -1,4 +1,4 @@
-# ⚡ Code Chronicles — DSA Mastery
+# ⚡ Code  Chronicles  —  DSA  Mastery
 
 <p align="center">
   <strong>A structured journey from DSA fundamentals to advanced problem solving.</strong>
