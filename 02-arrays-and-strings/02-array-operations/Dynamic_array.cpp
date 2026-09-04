@@ -97,10 +97,10 @@ int main()
     DynamicArray arr;
 
     cout << "--- Pushing Elements ---\n";
-    arr.push_back(10);
+    arr.push_back(5);
     arr.print();
 
-    arr.push_back(20);
+    arr.push_back(10);
     arr.print();
 
     // Capacity automatically doubles here
